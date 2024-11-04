@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Responsive" content="Pages">
+    <title>Apple Store</title>
+    <link rel="stylesheet" href="Index.css" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" href="Photos/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/1cf483120b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-content">
+            <div class="logo">
+                <div class="logo-name">
+                    <br><p>Apple<br>
+                    Store
+                    </p> 
+                    <img src="iphone.jpg" height="50" width="50">
+                </div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <br> <br> <br> <br> <br> <br> <br> <br>
+        <ul class="categories">
+            <li id="Search">
+                <i class='bx bx-search'></i>
+                <input type="search" placeholder="Search">
+                <span class="tooltip">Search</span>
+            </li>
+            <br> 
+            <li class="list" data-filter="Home" id="Home">
+                <i class='bx bx-home' ></i>
+                <span class="link_name">Home</span>    
+                <span class="tooltip">Home</span>
+            </li> 
+            <br>
+            <li class="list" data-filter="About">
+                    <i class='bx bx-info-square'></i>
+                    <span class="link_name">About</span>
+                <span class="tooltip">About</span>
+            </li>
+            <br> 
+            <li class="list" data-filter="Shop" id="Shop">
+                <i class='bx bx-shopping-bag'></i>
+                    <span class="link_name">Shop</span>
+                <span class="tooltip">Shop</span>
+            </li>
+            <br>
+            <li class="list" data-filter="Contact" id="Contact">
+                <i class='bx bx-user-circle' ></i>
+                <span class="link_name">Contact</span>
+                <span class="tooltip">Contact</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="itemBox Home">
+        <h1>Welcome to Home Page</h1>
+        <p>Here You will Find A Apples Products in low price</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script class="text/javascript">
+        $(document).ready(function(){
+            $('.list').click(function(){
+                const value = $(this).attr('data-filter');
+                if(value == 'All'){
+                    $('.itemBox').show('1000');
+                }
+                else{
+                    $('.itemBox').not('.'+value).hide('1000');
+                    $('.itemBox').filter('.'+value).show('3000')
+                }
+            })
+            $('.list').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        })
+    </script>
+
+<script>
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+    let searchBtn = document.querySelector(".bx-search");
+
+    btn.onclick = function() {
+        sidebar.classList.toggle("active");
+    }
+
+    searchBtn.onclick = function() {
+        sidebar.classList.toogle("active");
+    } 
+
+</script>
+</body>
+</html>
